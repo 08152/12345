@@ -29,8 +29,8 @@
 const PIN = "HALLOWELTICHBINSCHLAU123456789";
 let API_BASE = "";
 
-// Render lädt die Tunnel-URL deines PCs aus config.json
-fetch("/api/config")
+// Render holt die Tunnel-URL von deinem PC
+fetch("/api/tunnel")
     .then(r => r.json())
     .then(cfg => API_BASE = cfg.pc_api);
 
