@@ -21,17 +21,15 @@
     <div id="filelist"></div>
 
     <h3>Dateipfad eingeben</h3>
-    <input id="path" placeholder="z.B. C:/MailArchive/2026-09-27/bild1.jpg">
+    <input id="path" placeholder="C:/MailArchive/...">
     <button onclick="downloadFile()">Download</button>
 </div>
 
 <script>
 const PIN = "HALLOWELTICHBINSCHLAU123456789";
+let API_BASE = "";
 
-// Diese URL wird deine EXE später an GitHub pushen:
-let API_BASE = ""; 
-
-// Render ruft diese Info vom Server ab
+// Render lädt die Tunnel-URL deines PCs aus config.json
 fetch("/api/config")
     .then(r => r.json())
     .then(cfg => API_BASE = cfg.pc_api);
