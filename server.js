@@ -5,8 +5,10 @@ const path = require("path");
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Statische Dateien (index.html)
-app.use(express.static(path.join(__dirname, "public")));
+// index.html direkt aus dem Ordner ausliefern
+app.get("/", (req, res) => {
+    res.sendFile(path.join(__dirname, "index.html"));
+});
 
 // API: Render → Handy → Tunnel-URL deines PCs
 app.get("/api/config", (req, res) => {
